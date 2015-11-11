@@ -12,13 +12,18 @@ if ( ! $input) {
 $SC = new SnakeCamel;
 
 $start_time = microtime();
+$start_mem = memory_get_usage();
 $r = $SC->snake_to_camel($input);
+$end_mem = memory_get_usage();
 $end_time = microtime();
+
+
 
 var_dump($r);
 echo "======REPORT======\n";
 echo "input JSON size:".strlen($json_str)." bytes\n";
 echo "total key size:".$SC->total_key_size." bytes\n";
+echo "array memory usage(estimate):".($end_mem - $start_mem) / (1024)." KB\n";
 echo (($end_time - $start_time)) . " sec\n";
 
 
