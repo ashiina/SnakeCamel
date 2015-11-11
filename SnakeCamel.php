@@ -11,7 +11,6 @@ class SnakeCamel
 		foreach ($array as $key => $value) {
 			if (preg_match('/_/', $key)) {
 				$this->total_key_size += strlen($key);
-				echo "{$this->total_key_size} \n";
 				$key = $this->camelize($key);
 			}
 
